@@ -1,0 +1,42 @@
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regularContainer {
+    min-width: 325px;
+    max-width: 670px;
+    height: 500px;
+}
+
+.mobileContainer {
+    max-width: 300px;
+    height: 500px;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.buttonsRegularContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.buttonsMobileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+}
