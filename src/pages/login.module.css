@@ -8,8 +8,7 @@
 
 .regularContainer {
     min-width: 325px;
-    max-width: 670px;
-    height: 500px;
+    max-width: 680px;
 }
 
 .mobileContainer {
@@ -18,6 +17,7 @@
 }
 
 .content {
+    padding: 30px;
     height: 100%;
     display: flex;
     flex-direction: column;

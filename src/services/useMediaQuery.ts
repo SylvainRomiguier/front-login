@@ -6,6 +6,6 @@ export const useMediaQuery = (width: number) => {
     useEffect(() => {
         window.addEventListener("resize", updateWindowWidth);
         return () => window.removeEventListener("resize", updateWindowWidth);
-    }, []);
+    }, [updateWindowWidth]);
 return windowWidth < width;
 } 
