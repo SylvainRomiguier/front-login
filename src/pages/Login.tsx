@@ -1,6 +1,6 @@
-import { Paper } from "sylvain-components-library";
-import { Text16pxBold } from "sylvain-components-library";
-import { Button } from "sylvain-components-library";
+import { Paper } from "@sylvainromiguier/sylvain-components-library-package";
+import { Text16pxBold } from "@sylvainromiguier/sylvain-components-library-package";
+import { Button } from "@sylvainromiguier/sylvain-components-library-package";
 import { useMediaQuery } from "../services/useMediaQuery";
 import styles from "./login.module.css";
 

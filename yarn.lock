@@ -2863,6 +2863,11 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
+"@sylvainromiguier/sylvain-components-library-package@1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@sylvainromiguier/sylvain-components-library-package/1.0.0/da8930cd2308c397fea65d22e538c3c7022e06d2ee77a900d5b5dccf6cb0eb30#f4e590eb2a9b070afe65dae812ba96050c4b0688"
+  integrity sha512-Y0fcLp8Qumlk9ONMluUYje2Bym2Kw4LiQXgdVaGJN/oDYDKaMKp2Q7UH9jIPuhioFdQn+1kDIpKYo/+oGGCCzA==
+
 "@testing-library/dom@^7.28.1":
   version "7.31.2"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.31.2.tgz#df361db38f5212b88555068ab8119f5d841a8c4a"
@@ -13761,9 +13766,6 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
-
-sylvain-components-library@../sylvain-components-library/build/:
-  version "0.1.0"
 
 symbol-tree@^3.2.4:
   version "3.2.4"
