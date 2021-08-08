@@ -4,10 +4,15 @@
 import { useState } from "react";
 import { Paper, TextInput, Title } from "sylvain-components-library";
 import { Button } from "sylvain-components-library";
+import { useAuthenticationService } from "../services/authenticationService/useAuthenticationService";
 import { useMediaQuery } from "../services/useMediaQuery";
 import styles from "./login.module.css";
 
-export const Login: React.FC = () => {
+export interface LoginProps {
+  submit: (username:string, password:string) => void;
+}
+
+export const Login: React.FC<LoginProps> = ({submit}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const mobile = useMediaQuery(700);
@@ -20,10 +25,15 @@ export const Login: React.FC = () => {
           <TextInput label="password" value={password} onChange={(value) => setPassword(value)} password/>
           <div className={mobile ? styles.buttonsMobileContainer : styles.buttonsRegularContainer}>
             <Button label="Cancel" type="disabled" />
-            <Button label="Login" type="active" />
+            <Button label="Login" type="active" onClick={() => submit(username, password)}/>
           </div>
         </div>
       </Paper>
     </div>
   );
+};
+
+export const LoginHandler:React.FC = () => {
+  const {sendCredentials} = useAuthenticationService();
+  return <Login submit={sendCredentials} />
 };

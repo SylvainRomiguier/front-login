@@ -1,11 +1,14 @@
-import { Login } from './pages/Login';
+import { LoginHandler } from "./pages/Login";
 import styles from "./app.module.css";
+import { Services } from "./services";
 
 function App() {
   return (
-    <div className={styles.container}>
-    <Login />
-    </div>
+    <Services>
+      <div className={styles.container}>
+        <LoginHandler />
+      </div>
+    </Services>
   );
 }
 
