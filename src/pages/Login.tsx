@@ -53,7 +53,6 @@ export const Login: React.FC<LoginProps> = ({ submit }) => {
                 : styles.buttonsRegularContainer
             }
           >
-            <Button label="Cancel" type="disabled" />
             <Button label="Login" type="active" onClick={onSubmit} />
           </div>
         </div>
