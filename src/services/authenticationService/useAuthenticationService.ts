@@ -1,10 +1,10 @@
 import { useCallback, useContext } from "react";
 import { ServicesContext } from "..";
 
-type Response = Record<string, string>;
+export type APIResponse = Record<string, string>;
 
 export const useAuthenticationService = (): {
-    sendCredentials: (email:string, password:string) => Promise<Response>;
+    sendCredentials: (email:string, password:string) => Promise<APIResponse>;
 } => {
   const {
     httpService: { post },
@@ -12,14 +12,14 @@ export const useAuthenticationService = (): {
 
   const sendCredentials = useCallback(
     (email: string, password: string) =>
-      post<Response>(
+      post<APIResponse>(
         "https://identity-server.grimoire-systems.fr/users/login",
         {
           email,
           password,
         }
       ),
-    []
+    [post]
   );
 
   return {

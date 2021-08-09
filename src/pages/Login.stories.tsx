@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof Login> = (args) => <Login {...args}/>;
 
 export const LoginTemplate = Template.bind({});
 LoginTemplate.args = {
-  submit: action("clic submit")
+  submit: (email:string, password: string) => new Promise(() => action("clic submit"))
 }
