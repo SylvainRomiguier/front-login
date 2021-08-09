@@ -2,15 +2,33 @@
 // import { Text16pxBold } from "@sylvainromiguier/sylvain-components-library-package";
 // import { Button } from "@sylvainromiguier/sylvain-components-library-package";
 import { useState } from "react";
-import { Paper, Text12pxBold, TextInput, Title } from "sylvain-components-library";
+import {
+  Paper,
+  Text12pxBold,
+  TextInput,
+  Title,
+} from "sylvain-components-library";
 import { Button } from "sylvain-components-library";
-import { APIResponse, useAuthenticationService } from "../services/authenticationService/useAuthenticationService";
+import {
+  APIResponse,
+  useAuthenticationService,
+} from "../services/authenticationService/useAuthenticationService";
 import { useMediaQuery } from "../services/useMediaQuery";
+import { emailValidator } from "../validators/emailValidator";
 import styles from "./login.module.css";
 
 export interface LoginProps {
   submit: (username: string, password: string) => Promise<APIResponse>;
 }
+
+const validateForm = (username: string, password: string) => {
+  if (!emailValidator(username).valid) {
+    throw new Error(emailValidator(username).errorMessage);
+  }
+  if (!password || password === "") {
+    throw new Error("password is required.");
+  }
+};
 
 export const Login: React.FC<LoginProps> = ({ submit }) => {
   const [username, setUsername] = useState("");
@@ -20,9 +38,13 @@ export const Login: React.FC<LoginProps> = ({ submit }) => {
   const onSubmit = async () => {
     setError("");
     try {
-    await submit(username, password);
-    } catch(e) {
-      setError("Email and/or password are incorrect.");
+      validateForm(username, password);
+      const response = await submit(username, password);
+      if (response.error) {
+        throw new Error(response.error);
+      }
+    } catch (e) {
+      setError(e.message);
     }
   };
   return (
@@ -45,7 +67,7 @@ export const Login: React.FC<LoginProps> = ({ submit }) => {
             onChange={(value) => setPassword(value)}
             password
           />
-            <Text12pxBold>{error}</Text12pxBold>
+          <Text12pxBold>{error}</Text12pxBold>
           <div
             className={
               mobile

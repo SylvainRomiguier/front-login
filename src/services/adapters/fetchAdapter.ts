@@ -1,3 +1,4 @@
+import { resolveNaptr } from "dns";
 import { IHttpService } from "../IHttpService";
 
 export const fetchAdapter = (): IHttpService => ({
